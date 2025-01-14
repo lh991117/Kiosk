@@ -1,13 +1,13 @@
-package com.example.Level4;
+package com.example.Level5;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Menu {
     //ArrayList 필드
-    ArrayList<String> Category=new ArrayList<>();
-    ArrayList<MenuItem> burgerItemList =new ArrayList<>();
-    ArrayList<MenuItem> drinkItemList =new ArrayList<>();
-    ArrayList<MenuItem> dessertItemList =new ArrayList<>();
+    private ArrayList<String> Category=new ArrayList<>();
+    private ArrayList<MenuItem> burgerItemList =new ArrayList<>();
+    private ArrayList<MenuItem> drinkItemList =new ArrayList<>();
+    private ArrayList<MenuItem> dessertItemList =new ArrayList<>();
 
     //카테고리 리스트에 카테고리 추가
     public void addCategory(){
@@ -38,7 +38,7 @@ public class Menu {
         int index=1;
         System.out.println("[ Burgers Menu ]");
         for (MenuItem menuItem : burgerItemList) {
-            System.out.println(index+". "+menuItem.foodName+" | W "+menuItem.foodPrice+" | "+menuItem.foodInfo);
+            System.out.println(index+". "+menuItem.getFoodName()+" | W "+menuItem.getFoodPrice()+" | "+menuItem.getFoodInfo());
             index++;
         }
         System.out.println("0. 뒤로가기");
@@ -54,7 +54,7 @@ public class Menu {
         int index=1;
         System.out.println("[ Drinks Menu ]");
         for (MenuItem menuItem : drinkItemList) {
-            System.out.println(index+". "+menuItem.foodName+" | W "+menuItem.foodPrice+" | "+menuItem.foodInfo);
+            System.out.println(index+". "+menuItem.getFoodName()+" | W "+menuItem.getFoodPrice()+" | "+menuItem.getFoodInfo());
             index++;
         }
         System.out.println("0. 뒤로가기");
@@ -71,7 +71,7 @@ public class Menu {
         int index=1;
         System.out.println("[ Desserts Menu ]");
         for (MenuItem menuItem : dessertItemList) {
-            System.out.println(index+". "+menuItem.foodName+" | W "+menuItem.foodPrice+" | "+menuItem.foodInfo);
+            System.out.println(index+". "+menuItem.getFoodName()+" | W "+menuItem.getFoodPrice()+" | "+menuItem.getFoodInfo());
             index++;
         }
         System.out.println("0. 뒤로가기");
@@ -98,7 +98,7 @@ public class Menu {
         switch (checkNum){
             case 1:
                 if(orderNum<=burgerItemList.size() && orderNum>0){
-                    System.out.println("선택한 메뉴 : "+ burgerItemList.get(orderNum-1).foodName+", "+ burgerItemList.get(orderNum-1).foodPrice+", "+ burgerItemList.get(orderNum-1).foodInfo);
+                    System.out.println("선택한 메뉴 : "+ burgerItemList.get(orderNum-1).getFoodName()+", "+ burgerItemList.get(orderNum-1).getFoodPrice()+", "+ burgerItemList.get(orderNum-1).getFoodInfo());
                     System.out.println();
                 }
                 else if(orderNum>burgerItemList.size()-1 && orderNum<0){
@@ -108,7 +108,7 @@ public class Menu {
                 break;
             case 2:
                 if(orderNum<=drinkItemList.size() && orderNum>0){
-                    System.out.println("선택한 메뉴 : "+ drinkItemList.get(orderNum-1).foodName+", "+ drinkItemList.get(orderNum-1).foodPrice+", "+ drinkItemList.get(orderNum-1).foodInfo);
+                    System.out.println("선택한 메뉴 : "+ drinkItemList.get(orderNum-1).getFoodName()+", "+ drinkItemList.get(orderNum-1).getFoodPrice()+", "+ drinkItemList.get(orderNum-1).getFoodInfo());
                     System.out.println();
                 }
                 else if(orderNum>drinkItemList.size()-1 && orderNum<0){
@@ -118,7 +118,7 @@ public class Menu {
                 break;
             case 3:
                 if(orderNum<=dessertItemList.size() && orderNum>0){
-                    System.out.println("선택한 메뉴 : "+ dessertItemList.get(orderNum-1).foodName+", "+ dessertItemList.get(orderNum-1).foodPrice+", "+ dessertItemList.get(orderNum-1).foodInfo);
+                    System.out.println("선택한 메뉴 : "+ dessertItemList.get(orderNum-1).getFoodName()+", "+ dessertItemList.get(orderNum-1).getFoodPrice()+", "+ dessertItemList.get(orderNum-1).getFoodInfo());
                     System.out.println();
                 }
                 else if(orderNum>dessertItemList.size()-1 && orderNum<0){
@@ -128,5 +128,10 @@ public class Menu {
                 break;
             default:
         }
+    }
+
+    //카테고리 리스트의 사이즈를 주는 메서드
+    public int getCategorySize(){
+        return Category.size();
     }
 }

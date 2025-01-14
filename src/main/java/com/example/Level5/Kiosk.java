@@ -1,4 +1,4 @@
-package com.example.Level4;
+package com.example.Level5;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class Kiosk {
                     break;
                 }
                 //메뉴에 있는 숫자 외에 숫자가 입력되면 메세지를 출력한다.
-                else if(selectNum>menu.Category.size()){
+                else if(selectNum> menu.getCategorySize()){
                     System.out.println("메뉴에 있는 숫자만 입력해주세요!");
                 }
                 else{//메뉴에 있는 숫자가 작성되면 다음 반복문이 실행된다.
