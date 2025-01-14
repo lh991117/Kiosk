@@ -43,7 +43,7 @@ public class Kiosk {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
-                else if(checkNum>menuItemList.size()-1){
+                else if(checkNum>menuItemList.size()){
                     System.out.println("메뉴에 있는 숫자만 입력해주세요!");
                 }
                 else{
