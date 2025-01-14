@@ -6,39 +6,51 @@ public class Kiosk {
     Menu menu=new Menu();
 
     public void Start(){
-        int checkNum;
+        int selectNum, orderNum;
         Scanner sc=new Scanner(System.in);
 
-        //리스트 추가 함수 실행
-        menu.addMenu();
+        //리스트에 필요한 내용들 추가
+        menu.addCategory();
+        menu.addBurgerMenu();
 
         //반복문 실행
         while(true){
-            System.out.println("[ ShakeShack Menu ]");
-
-            //Menu 클래스에서 리스트에 메뉴를 추가하는 함수를 불러와 실행
-            menu.enumList();
-
-            System.out.println("0. 종료  | 종료");
-            System.out.println();
-
+            //카테고리 리스트 출력 함수를 불러오기
             try{
-                System.out.println("원하는 메뉴 번호를 입력하시거나 종료 숫자를 입력하시면 됩니다.");
-                checkNum=sc.nextInt();
+                menu.categoryList();
+                selectNum=sc.nextInt();
                 sc.nextLine();
-                System.out.println();
 
-                if(checkNum==0){
+                //0이 입력될 경우에는 프로그램을 종료한다.
+                if(selectNum==0){
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
-                else if(checkNum>menu.menuItemList.size()-1){
+                //메뉴에 있는 숫자 외에 숫자가 입력되면 메세지를 출력한다.
+                else if(selectNum>menu.Category.size()-1){
                     System.out.println("메뉴에 있는 숫자만 입력해주세요!");
                 }
-                else{
-                    menu.getList(checkNum);
+                else{//메뉴에 있는 숫자가 작성되면 다음 반복문이 실행된다.
+                    while(true){
+                        try{
+                            //메뉴에 입력된 숫자에 맞는 카테고리를 불러와 열거한다.
+                            menu.getCategoryList(selectNum);
+                            orderNum=sc.nextInt();
+                            sc.nextLine();
+
+                            if(orderNum==0){//0이 입력될 경우에는 처음 메뉴판으로 이동된다.
+                                break;
+                            }
+                            else{//0 이외에 숫자가 입력될 경우에 getMenuList에 숫자를 넣어서 실행한다.
+                                menu.getMenuList(selectNum, orderNum);
+                            }
+                        } catch (Exception e) {//숫자가 아닌 문자가 입력될 경우 예외 처리
+                            sc.nextLine();
+                            System.out.println("숫자만 입력하실 수 있습니다!");
+                        }
+                    }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {//숫자가 아닌 문자가 입력될 경우 예외 처리
                 sc.nextLine();
                 System.out.println("숫자만 입력하실 수 있습니다!");
             }
