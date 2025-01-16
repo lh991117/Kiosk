@@ -30,7 +30,23 @@ public class Kiosk {
                 }
                 //메뉴에 있는 숫자 외에 숫자가 입력되면 메세지를 출력한다.
                 else if(selectNum> menu.getCategorySize()){
-                    System.out.println("메뉴에 있는 숫자만 입력해주세요!");
+                    if(menu.getOrderBool() && selectNum==menu.getCategorySize()+1){
+                        menu.enumOrderList();
+
+                        //주문 완료가 되었을 경우 프로그램 종료
+                        if(menu.getFinishOrder()){
+                            break;
+                        }
+                    }
+                    else if(menu.getOrderBool() && selectNum==menu.getCategorySize()+2){
+                        menu.clearOrderList();
+                        menu.setOrderBool(false);
+                        System.out.println();
+                    }
+                    else {
+                        System.out.println("메뉴에 있는 숫자만 입력해주세요!");
+                        System.out.println();
+                    }
                 }
                 else{//메뉴에 있는 숫자가 작성되면 다음 반복문이 실행된다.
                     while(true){
@@ -45,16 +61,19 @@ public class Kiosk {
                             }
                             else{//0 이외에 숫자가 입력될 경우에 getMenuList에 숫자를 넣어서 실행한다.
                                 menu.getMenuList(selectNum, orderNum);
+                                break;
                             }
                         } catch (Exception e) {//숫자가 아닌 문자가 입력될 경우 예외 처리
                             sc.nextLine();
                             System.out.println("숫자만 입력하실 수 있습니다!");
+                            System.out.println();
                         }
                     }
                 }
             } catch (Exception e) {//숫자가 아닌 문자가 입력될 경우 예외 처리
                 sc.nextLine();
                 System.out.println("숫자만 입력하실 수 있습니다!");
+                System.out.println();
             }
         }
     }
