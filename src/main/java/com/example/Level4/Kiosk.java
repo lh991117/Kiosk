@@ -3,8 +3,10 @@ package com.example.Level4;
 import java.util.*;
 
 public class Kiosk {
+    //Menu 객체 생성
     Menu menu=new Menu();
 
+    //키오스크를 실행하는 메서드
     public void Start(){
         int selectNum, orderNum;
         Scanner sc=new Scanner(System.in);
@@ -19,6 +21,7 @@ public class Kiosk {
         while(true){
             //카테고리 리스트 출력 함수를 불러오기
             try{
+                //Menu 클래스의 categoryList 메서드 실행
                 menu.categoryList();
                 selectNum=sc.nextInt();
                 sc.nextLine();
