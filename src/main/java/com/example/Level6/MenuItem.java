@@ -6,12 +6,14 @@ public class MenuItem {
     private double foodPrice;
     private String foodInfo;
 
+    //MenuItem 생성자
     public MenuItem(String foodName, double foodPrice, String foodInfo) {
         setFoodName(foodName);
         setFoodPrice(foodPrice);
         setFoodInfo(foodInfo);
     }
 
+    //각 필드에 접근하는 get, set 메서드
     public String getFoodName() {
         return foodName;
     }

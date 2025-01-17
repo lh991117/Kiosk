@@ -3,7 +3,8 @@ package com.example.Level5;
 import java.util.ArrayList;
 
 public class Menu {
-    //ArrayList 필드
+    /*ArrayList 필드
+    각 음식 카테고리마다 리스트를 생성한다.*/
     private ArrayList<String> Category=new ArrayList<>();
     private ArrayList<MenuItem> burgerItemList =new ArrayList<>();
     private ArrayList<MenuItem> drinkItemList =new ArrayList<>();

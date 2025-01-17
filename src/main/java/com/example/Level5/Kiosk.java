@@ -3,8 +3,10 @@ package com.example.Level5;
 import java.util.*;
 
 public class Kiosk {
+    //Menu 객체 생성
     Menu menu=new Menu();
 
+    //키오스크를 실행하는 메서드
     public void Start(){
         int selectNum, orderNum;
         Scanner sc=new Scanner(System.in);

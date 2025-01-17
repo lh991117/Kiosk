@@ -30,6 +30,7 @@ public class Kiosk {
                 }
                 //메뉴에 있는 숫자 외에 숫자가 입력되면 메세지를 출력한다.
                 else if(selectNum> menu.getCategorySize()){
+                    //Orders에 해당하는 숫자를 입력한 경우 장바구니에 담은 주문들을 열거한다.
                     if(menu.getOrderBool() && selectNum==menu.getCategorySize()+1){
                         menu.enumOrderList();
 
@@ -38,6 +39,7 @@ public class Kiosk {
                             break;
                         }
                     }
+                    //주문을 취소하는 숫자를 입력한 경우 장바구니를 비운다.
                     else if(menu.getOrderBool() && selectNum==menu.getCategorySize()+2){
                         menu.clearOrderList();
                         menu.setOrderBool(false);
